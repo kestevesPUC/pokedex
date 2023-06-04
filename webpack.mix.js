@@ -2,8 +2,29 @@
 
 let mix = require('laravel-mix');
 const webpack = require('webpack');
+const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+const path = require("path");
 
+mix.alias({ ziggy : path.resolve (' vendor/ tightenco /ziggy/dist.vue')});
+
+mix.webpackConfig({
+    plugins: [
+        new WebpackShellPluginNext({
+            onBuildStart:{
+                scripts: ['php artisan ziggy:generate public/js/common/Routes.js --quiet'],
+                blocking: true,
+                parallel: false
+            }, onBuildEnd: [] })
+    ],
+});
 // mix.js('resources/js/app.js', 'dist').setPublicPath('dist');
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            ziggy: path.resolve('vendor/tightenco/ziggy/dist'),
+        },
+    },
+})
 
 mix.webpackConfig({
     plugins: [

@@ -13,5 +13,6 @@
     </div>
     <img src="#" alt="pokemon_gif" class="pokemon_gif">
     <img src="{{ url('img/pokedex.png') }}" alt="pokedex" class="pokedex">
+
 </div>
 

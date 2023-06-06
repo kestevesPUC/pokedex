@@ -7,9 +7,20 @@ use Illuminate\Routing\Controller;
 
 class PokemonController extends Controller
 {
+    private $request;
 
-    public function index(Request $request)
+    public function __construct(Request $request)
     {
-        dd($request);
+        $this->request = $request;
+    }
+
+    public function index()
+    {
+        try{
+            return view('main.index')
+                ->with(['pokemon' => $this->request->all()]);
+        } catch (\Exception $e) {
+            dd($e);
+        }
     }
 }

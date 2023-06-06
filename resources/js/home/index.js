@@ -19,17 +19,20 @@ const HOME = function () {
                     data = response;
                     pokemon_name.innerHTML = response.name;
                     pokemon_number.innerHTML = response.id;
+                    search_pokemon = response.id;
                     pokemon_gif.src = response.sprites.versions['generation-v']['black-white']['animated']['front_default'];
                 },
                 error: function (error) {
+                    pokemon_gif.style.display = "none";
                     pokemon_name.innerHTML = ":(";
                     pokemon_number.innerHTML = "";
-                    pokemon_gif.style.display = "none";
                 }
             });
 
             return data;
         }
+
+
 
         $(".form").on('submit', function (e) {
             e.preventDefault();

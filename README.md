@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-      <title>Desafio Pokedex:</title>
+      <h1>Desafio Pokedex:</h1>
     </head>
 
 <body>
